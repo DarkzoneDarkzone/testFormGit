@@ -1,0 +1,17 @@
+#mainpage-menu {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#container-mainpage {
+    margin: auto;
+    padding: 0%;
+}
+
+#nav-mainpage {
+    padding: 10px;
+}
+
+#main-col {
+    text-align: center;
+}

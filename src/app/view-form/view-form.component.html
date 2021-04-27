@@ -1,0 +1,37 @@
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">ID (last 6)</th>
+            <th scope="col">Student Name </th>
+            <th scope="col">Age</th>
+            <th scope="col">Telephone</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+
+    <tbody *ngFor="let recieveStudent of getDataStudent; let i = index">
+        <!-- <th></th> -->
+        <td>{{recieveStudent.studentId | slice:0:6}}</td>
+        <td>{{recieveStudent.studentName}}</td>
+        <td>{{recieveStudent.studentAge}}</td>
+        <td>{{recieveStudent.studentTel}}</td>
+        <td style="padding: 5px;"><button  class="btn btn-warning" onclick="" routerLink='/edit-form'>edit</button></td>
+        <td style="padding: 5px;"><button class="btn btn-danger" (click)="deleteData(recieveStudent.studentId)">Delete</button></td>
+    </tbody>
+</table>
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col-4 mb-5">
+        <div class="btn btn-success" routerLink='/add-form'>Add</div>
+    </div>
+    <div class="col"></div>
+</div>
+<div class="row">
+    <div class="col"></div>
+    <div class="col-4">
+        <div class="btn btn-primary" routerLink='/main'>Back</div>
+    </div>
+    <div class="col"></div>
+</div>
