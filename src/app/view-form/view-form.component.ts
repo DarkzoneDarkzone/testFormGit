@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { timer } from 'rxjs';
+import Swal from 'sweetalert2';
+import { student } from '../models/classroom';
 import { CallApiService } from '../services/call-api.service';
 
 @Component({
@@ -9,8 +13,7 @@ import { CallApiService } from '../services/call-api.service';
 export class ViewFormComponent implements OnInit {
   getDataStudent:any;
   formView:any;
-  //submit:boolean = false;
-  constructor( public callapi: CallApiService ) { }
+  constructor( public callapi: CallApiService, public sentData: Router ) { }
 
   ngOnInit(): void {
     this.getAllDataStudent();
@@ -22,11 +25,19 @@ export class ViewFormComponent implements OnInit {
     })
   }
   deleteData(studentID:string){
-  //  this.submit = true;
       this.callapi.deleteDataStudent(studentID).subscribe(it => {
+        Swal.fire({
+          icon: 'success',
+          title: 'finished...',
+          showConfirmButton: false,
+          timer: 600,
+          width: 300,
+        })
         this.getAllDataStudent();
       })
   }
-  
 
+  editData(studentID:string){
+      this.sentData.navigate(['edit-form',{stdID: studentID}]);
+  }
 }

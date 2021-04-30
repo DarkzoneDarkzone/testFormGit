@@ -1,0 +1,33 @@
+<div class="card" id="styleCard">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID (last 6)</th>
+                <th scope="col">Teacher Name </th>
+                <th scope="col">Age</th>
+                <th scope="col">Subject</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+    
+        <tbody *ngFor="let recieveTeacher of getDataTeacher; let i = index">
+            <!-- <th></th> -->
+            <td>{{recieveTeacher.teacherId | slice:0:6}}</td>
+            <td>{{recieveTeacher.teacherName}}</td>
+            <td>{{recieveTeacher.teacherTel}}</td>
+            <td>{{recieveTeacher.subjectTaught}}</td>
+            <td style="padding: 5px;"><button  class="btn btn-warning" (click)="editData(recieveTeacher.teacherId)">edit</button></td>
+            <td style="padding: 5px;"><button class="btn btn-danger" (click)="deleteData(recieveTeacher.teacherId)">Delete</button></td>
+        </tbody>
+    </table>
+</div>
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col-4 mb-5">
+        <div class="btn btn-success mr-1" routerLink='/add-form-teacher'>Add</div>
+        <div class="btn btn-primary" routerLink='/main'>Back</div>
+    </div>
+    <div class="col"></div>
+</div>

@@ -1,24 +1,32 @@
-<div class="container-fluid" id='container-mainpage'>
-  <div class="bg_set">
-    <ul class="nav justify-content-end bg-dark" id='nav-mainpage'>
-      <li class="nav-item">
-        <a class="btn btn-outline-warning mr-1" id='mainpage-menu' routerLink='/main'>View</a>
-      </li>
-      <li class="nav-item">
-        <a class="btn btn-outline-warning mr-1" id='mainpage-menu' routerLink='/view-form'>Edit Member</a>
-      </li>
-    </ul>
+<div class="body bg-gradient-secondary" id="wrapper">
+    <div class="container-fluid" id='container-mainpage'>
+        <div class="bg_set">
+            <ul class="nav justify-content-end sticky-top bg-dark" id='nav-mainpage'>
+                <li class="nav-item">
+                    <a class="btn btn-outline-warning mr-1" id='mainpage-menu' routerLink='/main'>View</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-warning mr-1" id='mainpage-menu' routerLink='/view-form'>Edit Student</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-warning mr-1" id='mainpage-menu' routerLink='/edit-teacher'>Edit Teacher</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-warning mr-1" id='mainpage-menu' routerLink='/classroom'>Edit Classroom</a>
+                </li>
+            </ul>
 
-    <div class="row">
+            <div class="row">
 
-      <div class="col"></div>
+                <div class="col"></div>
 
-      <div class="col-8" id='main-col'>
-        <router-outlet></router-outlet>
-      </div>
+                <div class="col-8" id='main-col'>
+                    <router-outlet></router-outlet>
+                </div>
 
-      <div class="col"></div>
+                <div class="col"></div>
+            </div>
+
+        </div>
     </div>
-
-  </div>
 </div>

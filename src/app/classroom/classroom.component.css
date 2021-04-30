@@ -1,0 +1,27 @@
+#styleCard {
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: 0 0 15px black;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#styleCardModal {
+    background-color: rgba(247, 244, 244, 0.95);
+    box-shadow: 0 0 15px black;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#fontStyle {
+    color: rgb(2, 2, 2);
+    font-size: 30px;
+    font-weight: 800;
+}
+
+#paddingmid {
+    padding-left: 50px;
+}
+
+#validatorsStyle {
+    font-size: medium;
+}

@@ -1,14 +1,9 @@
 #styleCard {
     background-color: rgba(0, 0, 0, 0);
-    box-shadow: 0 0 15px black;
+    box-shadow:0 0 15px black;
 }
-
-#fontStyle {
+#fontStyle{
     color: rgb(224, 231, 231);
     font-size: 30px;
     font-weight: 800;
-}
-
-#validatorsStyle {
-    font-size: medium;
 }

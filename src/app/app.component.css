@@ -3,15 +3,25 @@
     font-weight: 600;
 }
 
-#container-mainpage {
-    margin: auto;
-    padding: 0%;
-}
-
 #nav-mainpage {
     padding: 10px;
 }
 
 #main-col {
     text-align: center;
+}
+
+.body {
+    background-image: linear-gradient(rgb(235, 127, 208), rgb(247, 247, 146));
+    height: 100%;
+}
+
+#container-mainpage {
+    margin: auto;
+    padding: 0%;
+}
+
+#wrapper {
+    height: 100vh;
+    overflow-y: auto;
 }

@@ -1,0 +1,90 @@
+<div class="card" id="styleCard">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID (last 6)</th>
+                <th scope="col">Classroom Name </th>
+                <th scope="col">Student</th>
+                <th scope="col">Teacher</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+
+        <tbody *ngFor="let recieveClassroom of getDataClassroom; let i = index">
+            <!-- <th></th> -->
+            <td>{{recieveClassroom.classroomId | slice:0:6}}</td>
+            <td>{{recieveClassroom.classroomName}}</td>
+            <td>
+                <div *ngFor="let std of recieveClassroom.classStudent;">{{std.studentName}}</div>
+            </td>
+            <td>
+                <div *ngFor="let tc of recieveClassroom.classTeacher;">{{tc.teacherName}}</div>
+            </td>
+            <td style="padding: 5px;">
+                <div class="dropdown">
+                    <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Student
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu">
+                        <button *ngFor="let std of getDataStudent;" (click)="addStudentToClass(recieveClassroom.classroomId, std.studentId)" class="dropdown-item" type="button">{{std.studentName}}</button>
+                    </div>
+                </div>
+            </td>
+            <td style="padding: 5px;">
+                <div class="dropdown">
+                    <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Teacher
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu">
+                        <button *ngFor="let tc of getDataTeacher;" (click)="addTeacherToClass(recieveClassroom.classroomId, tc.teacherId)" class="dropdown-item" type="button">{{tc.teacherName}}</button>
+                    </div>
+                </div>
+            </td>
+            <td style="padding: 5px;">
+                <button class="btn-danger" (click)="deleteData(recieveClassroom.classroomId)">
+                    <mat-icon>clear</mat-icon>
+                </button>
+            </td>
+        </tbody>
+    </table>
+</div>
+
+
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col-4 mb-5">
+        <div data-toggle="modal" data-target="#createClass" class="btn btn-success mr-1">Create</div>
+        <div class="btn btn-primary" routerLink='/main'>Back</div>
+    </div>
+    <div class="col"></div>
+</div>
+
+<div class="modal fade" aria-hidden="true" id="createClass">
+    <div class="modal-dialog">
+        <div class="modal-content bg-white">
+
+            <div class="modal-header" style="margin: auto;">
+                <p class="mt-2" id="fontStyle">Create Classroom</p>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formClass" (ngSubmit)="createClassroom()">
+                    <div class="form-row p-4">
+                        <div class="form-group col">
+                            <label for="classroomName">ClassName</label>
+                            <input formControlName="classroomName" [ngClass]="{'is-invalid': submit && f.classroomName.errors}" type="text" class="form-control" id="classroomName">
+                            <div class="invalid-feedback" *ngIf="submit && f.classroomName.errors">
+                                <div id="validatorsStyle" *ngIf="f.classroomName.errors.pattern">a-z,A-Z,0-9</div>
+                                <div id="validatorsStyle" *ngIf="f.classroomName.errors.required">Required Name</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success mr-1">Confirm</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

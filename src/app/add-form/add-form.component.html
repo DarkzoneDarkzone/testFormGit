@@ -1,6 +1,6 @@
-<div class="card mr-5 ml-5">
+<div class="card mr-5 ml-5" id="styleCard">
     <div class="card-header bg-dark">
-        <p class="mt-2" style="color: rgb(224, 231, 231);font-size: 30px;font-weight: 800;">Add Student</p>
+        <p class="mt-2" id="fontStyle">Add Student</p>
     </div>
     <div class="card-body">
         <form [formGroup]="formAdd" (ngSubmit)="addData()">
@@ -8,14 +8,27 @@
                 <div class="form-group col">
                     <label for="studentName">Name</label>
                     <input formControlName="studentName" [ngClass]="{'is-invalid': submit && f.studentName.errors}" type="text" class="form-control" id="studentName">
+                    <div class="invalid-feedback" *ngIf="submit && f.studentName.errors">
+                        <div id="validatorsStyle" *ngIf="f.studentName.errors.required">Required</div>
+                        <div id="validatorsStyle" *ngIf="f.studentName.errors.pattern">a-z, A-Z</div>
+                    </div>
                 </div>
                 <div class="form-group col">
                     <label for="studentAge">age</label>
-                    <input formControlName="studentAge" [ngClass]="{'is-invalid': submit && f.studentAge.errors}" type="number" class="form-control" id="studentAge">
+                    <input formControlName="studentAge" [ngClass]="{'is-invalid': submit && f.studentAge.errors}" type="text" class="form-control" id="studentAge">
+                    <div class="invalid-feedback" *ngIf="submit && f.studentAge.errors">
+                        <div id="validatorsStyle" *ngIf="f.studentAge.errors.required">Required</div>
+                        <div id="validatorsStyle" *ngIf="f.studentAge.errors.pattern">0-9</div>
+                    </div>
                 </div>
                 <div class="form-group col">
                     <label for="studentTel">Tel.</label>
                     <input formControlName="studentTel" [ngClass]="{'is-invalid': submit && f.studentTel.errors}" type="text" class="form-control" id="studentTel">
+                    <div class="invalid-feedback" *ngIf="submit && f.studentTel.errors">
+                        <div id="validatorsStyle" *ngIf="f.studentTel.errors.required">Required</div>
+                        <div id="validatorsStyle" *ngIf="f.studentTel.errors.pattern">0-9</div>
+                        <div id="validatorsStyle" *ngIf="f.studentTel.errors.maxlength">no more 10</div>
+                    </div>
                 </div>
             </div>
             <button type="submit" class="btn btn-success mr-1">Confirm</button>

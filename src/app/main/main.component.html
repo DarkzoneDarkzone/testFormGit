@@ -1,62 +1,69 @@
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">ID (last 6)</th>
-            <th scope="col">Student Name </th>
-            <th scope="col">Age</th>
-            <th scope="col">Telephone</th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
+<div class="card" id="styleCard">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID (last 6)</th>
+                <th scope="col">Student Name </th>
+                <th scope="col">Age</th>
+                <th scope="col">Telephone</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
 
-    <tbody *ngFor="let recieveStudent of getDataStudent; let i = index">
-        <!-- <th></th> -->
-        <td>{{recieveStudent.studentId}}</td>
-        <td>{{recieveStudent.studentName}}</td>
-        <td>{{recieveStudent.studentAge}}</td>
-        <td>{{recieveStudent.studentTel}}</td>
-        <td></td>
-    </tbody>
-</table>
+        <tbody *ngFor="let recieveStudent of getDataStudent; let i = index">
+            <!-- <th></th> -->
+            <td>{{recieveStudent.studentId | slice:0:6}}</td>
+            <td>{{recieveStudent.studentName}}</td>
+            <td>{{recieveStudent.studentAge}}</td>
+            <td>{{recieveStudent.studentTel}}</td>
+            <td></td>
+        </tbody>
+    </table>
+</div>
 
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">ID (last 6)</th>
-            <th scope="col">Teacher Name </th>
-            <th scope="col">Telephone</th>
-            <th scope="col">subjectTaught</th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
+<div class="card" id="styleCard">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID (last 6)</th>
+                <th scope="col">Teacher Name </th>
+                <th scope="col">Telephone</th>
+                <th scope="col">subjectTaught</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
 
-    <tbody *ngFor="let recieveTeacher of getDataTeacher; let i = index">
-        <!-- <th></th> -->
-        <td>{{recieveTeacher.teacherId | slice:0:6}}</td>
-        <td>{{recieveTeacher.teacherName}}</td>
-        <td>{{recieveTeacher.teacherTel}}</td>
-        <td>{{recieveTeacher.subjectTaught}}</td>
-        <td></td>
-    </tbody>
-</table>
+        <tbody *ngFor="let recieveTeacher of getDataTeacher; let i = index">
+            <!-- <th></th> -->
+            <td>{{recieveTeacher.teacherId | slice:0:6}}</td>
+            <td>{{recieveTeacher.teacherName}}</td>
+            <td>{{recieveTeacher.teacherTel}}</td>
+            <td>{{recieveTeacher.subjectTaught}}</td>
+            <td></td>
+        </tbody>
+    </table>
+</div>
 
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">ID (last 6)</th>
-            <th scope="col">Classroom Name</th>
-            <th scope="col">Student</th>
-            <th scope="col">Teacher</th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
-
-    <tbody *ngFor="let recieveClassroom of getDataClassroom; let i = index">
-        <!-- <th></th> -->
-        <td>{{recieveClassroom.classroomId | slice:0:6}}</td>
-        <td>{{recieveClassroom.classroomName}}</td>
-        <td>{{recieveClassroom.classStudent}}</td>
-        <td>{{recieveClassroom.classTeacher}}</td>
-        <td></td>
-    </tbody>
-</table>
+<div class="card" id="styleCard">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID (last 6)</th>
+                <th scope="col">Classroom Name </th>
+                <th scope="col">Student</th>
+                <th scope="col">Teacher</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let recieveClassroom of getDataClassroom; let i = index">
+            <!-- <th></th> -->
+            <td>{{recieveClassroom.classroomId | slice:0:6}}</td>
+            <td>{{recieveClassroom.classroomName}}</td>
+            <td id="paddingmid">
+                <div *ngFor="let std of recieveClassroom.classStudent;">{{std.studentName}}</div>
+            </td>
+            <td id="paddingmid">
+                <div *ngFor="let tc of recieveClassroom.classTeacher;">{{tc.teacherName}}</div>
+            </td>
+        </tbody>
+    </table>
+</div>

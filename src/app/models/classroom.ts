@@ -15,7 +15,7 @@ export class teacher {
 export class classroom {
     classroomID: string
     classroomName: string
-    classStudent: string
-    classTeacher: string
+    classStudent: student;
+    classTeacher: teacher;
 }
 
